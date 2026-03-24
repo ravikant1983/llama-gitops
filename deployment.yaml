@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llama-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: llama
+  template:
+    metadata:
+      labels:
+        app: llama
+    spec:
+      containers:
+      - name: llama
+        image: rkg1983/llama:latest
+        ports:
+        - containerPort: 8080
