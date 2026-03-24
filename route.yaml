@@ -1,0 +1,10 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: llama-route
+spec:
+  to:
+    kind: Service
+    name: llama-service
+  port:
+    targetPort: 8080
