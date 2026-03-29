@@ -20,10 +20,10 @@ spec:
 
         resources:
           requests:
-            memory: "4Gi"
+            memory: "6Gi"
             cpu: "2"
           limits:
-            memory: "16Gi"  # 32GB mein se max 16GB
+            memory: "12Gi"  # 32GB mein se max 16GB
             cpu: "4"    
 
             
@@ -33,7 +33,7 @@ spec:
 
         command: ["/bin/bash", "-c"]
         args:
-          - "/app/llama.cpp/build/bin/llama-server -m /models/ChatWithRavikant.gguf   --host 0.0.0.0  --port 8080  --no-mmap"
+          - "/app/llama.cpp/build/bin/llama-server -m /models/ChatWithRavikant.gguf   --host 0.0.0.0  --port 8080  -t 4 --no-mmap -c 4096 --mlock"
 
       volumes:
       - name: model-volume
