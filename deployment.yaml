@@ -17,6 +17,16 @@ spec:
         image: rkg1983/llama:199a70f06f72e99758fd25d2e39dbe984ea776e2
         ports:
         - containerPort: 8080
+
+        resources:
+          requests:
+            memory: "4Gi"
+            cpu: "2"
+          limits:
+            memory: "16Gi"  # 32GB mein se max 16GB
+            cpu: "4"    
+
+            
         volumeMounts:
         - name: model-volume
           mountPath: /models
