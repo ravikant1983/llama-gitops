@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: llama
-        image: rkg1983/llama:1cc93c0355d13da221578976b1f00b95943505c8
+        image: rkg1983/llama:2a16612d638f42c66f4c535c7c6b9683bcb612a0
         ports:
         - containerPort: 8080
