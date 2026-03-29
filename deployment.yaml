@@ -33,7 +33,7 @@ spec:
 
         command: ["/bin/bash", "-c"]
         args:
-          - "/app/llama.cpp/build/bin/llama-server -m /models/ChatWithRavikant.gguf   --host 0.0.0.0  --port 8080"
+          - "/app/llama.cpp/build/bin/llama-server -m /models/ChatWithRavikant.gguf   --host 0.0.0.0  --port 8080  --no-mmap"
 
       volumes:
       - name: model-volume
