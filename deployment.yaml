@@ -17,3 +17,19 @@ spec:
         image: rkg1983/llama:7b26c2a2a2f581edd6a5d43c11b55ae5b2011405
         ports:
         - containerPort: 8080
+
+        volumeMounts:
+        - name: model-volume
+          mountPath: /models
+
+        command: ["/bin/bash", "-c"]
+        args:
+          - /app/llama.cpp/build/bin/llama-server \
+            -m /models/ChatWithRavikant.gguf \
+            --host 0.0.0.0 \
+            --port 8080
+
+      volumes:
+      - name: model-volume
+        persistentVolumeClaim:
+          claimName: llama-model-pvc
